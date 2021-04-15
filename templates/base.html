@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'head.html' %}
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    
+
+    {% comment %} {% include 'carousel.html' %} {% endcomment %}
+
+    {% if messages %}
+        
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} mt-5 pt-4" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        
+    {% endif %}
+    {% block content  %}
+    {% endblock content %}
+
+    {% block extra_body %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+
+    {% include 'scripts.html' %}
+</body>
+</html>
